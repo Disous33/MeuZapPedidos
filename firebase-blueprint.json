@@ -50,6 +50,7 @@
       "type": "object",
       "properties": {
         "storeId": { "type": "string" },
+        "customerId": { "type": "string" },
         "customerName": { "type": "string" },
         "customerPhone": { "type": "string" },
         "customerAddress": { "type": "string" },
@@ -72,9 +73,27 @@
         "updatedAt": { "type": "string", "format": "date-time" }
       },
       "required": ["storeId", "customerName", "items", "total", "status", "orderNumber"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "Public customer profile",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "email": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "phone", "address", "email"]
     }
   },
   "firestore": {
+    "/customers/{customerId}": {
+      "schema": "Customer",
+      "description": "Customer profiles"
+    },
     "/stores/{storeId}": {
       "schema": "Store",
       "description": "Main store collection"

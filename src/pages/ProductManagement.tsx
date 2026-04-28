@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { storeService } from '@/src/services/storeService';
-import { categoryService } from '@/src/services/categoryService';
-import { productService } from '@/src/services/productService';
-import { Store, Category, Product } from '@/src/types';
+import { storeService } from '@/services/storeService';
+import { categoryService } from '@/services/categoryService';
+import { productService } from '@/services/productService';
+import { Store, Category, Product } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -12,7 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Plus, ChevronLeft, Trash2, Edit2, Package, Layers, Camera } from 'lucide-react';
 import { toast } from 'sonner';
-import { ImagePicker } from '@/src/components/ImagePicker';
+import { ImagePicker } from '@/components/ImagePicker';
 
 export default function ProductManagement() {
   const { id } = useParams<{ id: string }>();

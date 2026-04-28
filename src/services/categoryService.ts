@@ -8,9 +8,9 @@ import {
   query, 
   orderBy 
 } from 'firebase/firestore';
-import { db } from '@/src/lib/firebase';
-import { handleFirestoreError } from '@/src/lib/error-handler';
-import { Category, OperationType } from '@/src/types';
+import { db } from '@/lib/firebase';
+import { handleFirestoreError } from '@/lib/error-handler';
+import { Category, OperationType } from '@/types';
 
 export const categoryService = {
   async getCategories(storeId: string) {

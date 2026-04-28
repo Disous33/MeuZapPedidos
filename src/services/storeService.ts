@@ -10,9 +10,9 @@ import {
   where, 
   serverTimestamp 
 } from 'firebase/firestore';
-import { db, auth } from '@/src/lib/firebase';
-import { handleFirestoreError } from '@/src/lib/error-handler';
-import { Store, OperationType } from '@/src/types';
+import { db, auth } from '@/lib/firebase';
+import { handleFirestoreError } from '@/lib/error-handler';
+import { Store, OperationType } from '@/types';
 
 const STORES_PATH = 'stores';
 

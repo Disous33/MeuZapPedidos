@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { orderService } from '@/src/services/orderService';
-import { storeService } from '@/src/services/storeService';
-import { Order, OrderStatus, Store } from '@/src/types';
+import { orderService } from '@/services/orderService';
+import { storeService } from '@/services/storeService';
+import { Order, OrderStatus, Store } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';

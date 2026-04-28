@@ -8,9 +8,9 @@ import {
   query, 
   where 
 } from 'firebase/firestore';
-import { db } from '@/src/lib/firebase';
-import { handleFirestoreError } from '@/src/lib/error-handler';
-import { Product, OperationType } from '@/src/types';
+import { db } from '@/lib/firebase';
+import { handleFirestoreError } from '@/lib/error-handler';
+import { Product, OperationType } from '@/types';
 
 export const productService = {
   async getProducts(storeId: string) {

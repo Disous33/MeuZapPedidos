@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { storeService } from '@/src/services/storeService';
-import { Store } from '@/src/types';
+import { storeService } from '@/services/storeService';
+import { Store } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ChevronLeft, Save, Camera } from 'lucide-react';
 import { toast } from 'sonner';
-import { ImagePicker } from '@/src/components/ImagePicker';
+import { ImagePicker } from '@/components/ImagePicker';
 
 export default function StoreManagement() {
   const { id } = useParams<{ id: string }>();

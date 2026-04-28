@@ -60,11 +60,22 @@ export interface CartItem extends Product {
   quantity: number;
 }
 
+export interface CustomerProfile {
+  id: string;
+  name: string;
+  phone: string;
+  address: string;
+  email: string;
+  createdAt: any;
+  updatedAt: any;
+}
+
 export type OrderStatus = 'Novo' | 'Em preparo' | 'Finalizado' | 'Cancelado';
 
 export interface Order {
   id: string;
   storeId: string;
+  customerId?: string;
   customerName: string;
   customerPhone?: string;
   customerAddress?: string;

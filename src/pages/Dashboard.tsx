@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { storeService } from '@/src/services/storeService';
-import { Store } from '@/src/types';
+import { storeService } from '@/services/storeService';
+import { Store } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Plus, Store as StoreIcon, ExternalLink, Settings, LayoutGrid, LogOut, ShoppingBag } from 'lucide-react';
-import { auth } from '@/src/lib/firebase';
+import { auth } from '@/lib/firebase';
 import { toast } from 'sonner';
 
 export default function Dashboard() {

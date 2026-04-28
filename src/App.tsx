@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { FirebaseProvider, useFirebase } from '@/src/lib/FirebaseProvider';
+import { FirebaseProvider, useFirebase } from '@/lib/FirebaseProvider';
 import { Toaster } from '@/components/ui/sonner';
-import LandingPage from '@/src/pages/LandingPage';
-import Dashboard from '@/src/pages/Dashboard';
-import StoreManagement from '@/src/pages/StoreManagement';
-import ProductManagement from '@/src/pages/ProductManagement';
-import Orders from '@/src/pages/Orders';
-import MenuPage from '@/src/pages/MenuPage';
+import LandingPage from '@/pages/LandingPage';
+import Dashboard from '@/pages/Dashboard';
+import StoreManagement from '@/pages/StoreManagement';
+import ProductManagement from '@/pages/ProductManagement';
+import Orders from '@/pages/Orders';
+import MenuPage from '@/pages/MenuPage';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, loading } = useFirebase();

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { auth } from '@/src/lib/firebase';
-import { useFirebase } from '@/src/lib/FirebaseProvider';
+import { auth } from '@/lib/firebase';
+import { useFirebase } from '@/lib/FirebaseProvider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Smartphone, Zap, MessageCircle, DollarSign } from 'lucide-react';

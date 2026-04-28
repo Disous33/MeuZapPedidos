@@ -9,9 +9,9 @@ import {
   serverTimestamp,
   onSnapshot
 } from 'firebase/firestore';
-import { db } from '@/src/lib/firebase';
-import { handleFirestoreError } from '@/src/lib/error-handler';
-import { Order, OperationType, OrderStatus } from '@/src/types';
+import { db } from '@/lib/firebase';
+import { handleFirestoreError } from '@/lib/error-handler';
+import { Order, OperationType, OrderStatus } from '@/types';
 
 export const orderService = {
   async createOrder(storeId: string, data: Omit<Order, 'id' | 'createdAt' | 'updatedAt' | 'orderNumber' | 'status'>) {
