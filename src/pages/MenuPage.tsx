@@ -354,7 +354,100 @@ export default function MenuPage() {
 
       {view === 'menu' ? (
         <main className="max-w-6xl mx-auto p-6 md:p-12 space-y-16">
-          {/* ... existing menu code ... */}
+          {/* Categories Horizontal Scroll */}
+          <section className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-bold tracking-tight text-zinc-400 uppercase text-sm tracking-widest">Categorias</h2>
+              <Button variant="link" className="text-primary p-0 h-auto font-bold">Ver Tudo</Button>
+            </div>
+            <ScrollArea className="w-full whitespace-nowrap pb-4">
+              <div className="flex gap-4">
+                <button className="flex flex-col items-center gap-3 group">
+                  <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20 transition-all group-hover:scale-110">
+                    <span className="text-white text-2xl">🔥</span>
+                  </div>
+                  <span className="text-sm font-bold text-white">Populares</span>
+                </button>
+                {categories.map(cat => (
+                  <button 
+                    key={cat.id} 
+                    className="flex flex-col items-center gap-3 group shrink-0"
+                    onClick={() => {
+                      const el = document.getElementById(`cat-${cat.id}`);
+                      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
+                  >
+                    <div className="w-16 h-16 rounded-full bg-card border border-white/5 flex items-center justify-center shadow-lg transition-all group-hover:border-primary/50 group-hover:scale-110">
+                      <span className="text-zinc-400 group-hover:text-primary transition-colors text-xs font-bold uppercase">{cat.name.slice(0, 2)}</span>
+                    </div>
+                    <span className="text-sm font-medium text-zinc-500 group-hover:text-zinc-200 transition-colors">{cat.name}</span>
+                  </button>
+                ))}
+              </div>
+            </ScrollArea>
+          </section>
+
+          {categories.map(cat => (
+            <section key={cat.id} id={`cat-${cat.id}`} className="space-y-8">
+              <div className="flex items-center gap-4">
+                <h2 className="text-2xl font-black">{cat.name}</h2>
+                <div className="h-px flex-1 bg-white/5"></div>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {products.filter(p => p.categoryId === cat.id).map(prod => (
+                  <motion.div
+                    key={prod.id}
+                    whileHover={{ y: -5 }}
+                    className="group"
+                  >
+                    <Card className="bg-card border-white/5 overflow-hidden shadow-xl hover:shadow-primary/5 transition-all h-full flex flex-col">
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        {prod.imageUrl ? (
+                          <img 
+                            src={prod.imageUrl} 
+                            alt={prod.name} 
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-secondary flex items-center justify-center">
+                            <span className="text-4xl">🍴</span>
+                          </div>
+                        )}
+                        <div className="absolute top-3 right-3">
+                           <Badge className="bg-black/40 backdrop-blur-md border-none text-white flex items-center gap-1">
+                              ⭐ 4.8
+                           </Badge>
+                        </div>
+                      </div>
+                      
+                      <CardContent className="p-5 flex-1 flex flex-col justify-between gap-4 text-center">
+                        <div className="space-y-2">
+                          <h3 className="font-bold text-xl group-hover:text-primary transition-colors line-clamp-1">{prod.name}</h3>
+                          <p className="text-sm text-muted-foreground line-clamp-2 min-h-[40px]">{prod.description}</p>
+                        </div>
+                        
+                        <div className="flex flex-col items-center gap-3">
+                          <span className="font-black text-2xl text-white">R$ {prod.price.toFixed(2).replace('.', ',')}</span>
+                          
+                          {prod.available ? (
+                            <Button 
+                              onClick={() => addToCart(prod)} 
+                              className="w-full bg-primary hover:bg-primary/90 text-white rounded-2xl h-12 font-bold shadow-lg shadow-primary/20"
+                            >
+                              Adicionar
+                            </Button>
+                          ) : (
+                            <Badge variant="outline" className="w-full py-2 justify-center text-muted-foreground border-white/10 bg-white/5">Esgotado</Badge>
+                          )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </section>
+          ))}
         </main>
       ) : view === 'auth' ? (
         <main className="max-w-xl mx-auto p-6 flex flex-col items-center justify-center min-h-[60vh] space-y-8">
